@@ -31,18 +31,22 @@
     ];
 
 
-    function filterByAuthor($books, $author){
+    function filter  ($items, $fn){
 
-$filteredBooks=[];
-foreach($books as $book){
-    if($book["author"]===$author){
-        $filteredBooks[] = $book;
+$filteredItems=[];
+foreach($items as $item){
+    if($fn($item)){
+        $filteredItems[] = $item;
     }
-}    return $filteredBooks;
+}    return $filteredItems;
     }
+
+    $filteredBooks=filter($books, function($book){
+        return $book['releaseYear']<2030;
+    })
     ?>
     <ul>
-      <?php foreach(filterByAuthor($books,"Femi Second Edition") as $book):  ?>
+      <?php foreach($filteredBooks as $book):  ?>
       
             <li>
                 <?= $book['name'];?> (<?= $book['releaseYear']?>)
