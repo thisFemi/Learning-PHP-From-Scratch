@@ -29,6 +29,6 @@
 
 
 
-require "index.view.php";
+require "contact.view.php";
    
 
