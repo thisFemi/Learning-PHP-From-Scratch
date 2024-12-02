@@ -2,8 +2,9 @@
 require "functions.php";
 require "Database.php";
 
-//require "router.php";
+require "router.php";
 
+require "Response.php";
 
 
 //connect to MYSQL database.
@@ -21,15 +22,17 @@ require "Database.php";
 // $person->breath();
 //Connnecting to db, and execute a query.
 
-$config=require ("config.php");
+// $config=require ("config.php");
 
-$db=new Database($config['database']);
+// $db=new Database($config['database']);
 
-$posts=$db->query("select * from posts")->fetch();
-;
+// $id=$_GET['id'];
+// $query="select * from posts where id=?";
+// $posts=$db->query($query, [$id])->fetch();
 
 
-dd($posts);
+
+//dd($posts);
 // foreach($posts as $post){
 //     echo "<li>" . $post['title'] ."</li>";
 // }
