@@ -11,7 +11,11 @@ function dd($data){
     echo "</pre>";
    die();
 }
-
+ function abort($status=404){
+    http_response_code($status);
+    require base_path("views/{$status}.php");
+    die();
+}
 function authorize($condition, $status=Response::FORBIDDEN){
     if(!$condition){
         abort( $status);

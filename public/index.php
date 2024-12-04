@@ -13,7 +13,20 @@ spl_autoload_register(function ($class){
 
 // require base_path( "Database.php");
 // require base_path("Response.php");
-require base_path( "Core/router.php");
+
+
+
+
+
+$router=new \Core\Router();
+
+
+$routes=require base_path("routes.php");
+$uri=parse_url($_SERVER['REQUEST_URI'])['path'];
+$method=$_POST['_method']?? $_SERVER['REQUEST_METHOD'];
+$router->route($uri,$method ); 
+
+//require base_path( "Core/router.php");
 
 
 

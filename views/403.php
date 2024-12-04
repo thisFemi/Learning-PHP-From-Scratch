@@ -1,9 +1,9 @@
 
-<?php require("views/partials/head.php")?>
+<?php base_path("views/partials/head.php")?>
 <body  class="h-full">
 
 <div class="min-h-full">
-<?php require("views/partials/nav.php")?>
+<?php base_path("views/partials/nav.php")?>
 
 
   <main>
@@ -17,6 +17,6 @@
         </a></p>
     </div>
   </main>
-  <?php require("views/partials/footer.php")?>
+  <?php base_path("views/partials/footer.php")?>
 
 
