@@ -1,12 +1,15 @@
 <?php
-require("Validator.php");
-$config=require("config.php");
+use Core\Database;
+use Core\Validator;
+//require  base_path("Validator.php");
+$config=require base_path("config.php");
 
 $db=new Database($config['database']);
-$heading="Create note";
-dd(Validator::email('femi#gmail.com'));
+
+$errors=[];
+//dd(Validator::email('femi#gmail.com'));
 if($_SERVER['REQUEST_METHOD']=='POST'){
-    $errors=[];
+
 
     if(!Validator::string($_POST['body'],1,400)){
 $errors['body']="A body of no more than 400 is required";
@@ -20,5 +23,8 @@ $errors['body']="A body of no more than 400 is required";
     }
     
 }
-require 'views/notes/create.view.php';
 
+view( "notes/create.view.php",[
+    'heading'=>'Create note',
+    'notes'=>$errors
+]);

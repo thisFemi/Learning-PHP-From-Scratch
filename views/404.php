@@ -1,8 +1,8 @@
-<?php require("partials/head.php")?>
+<?php require("views/partials/head.php")?>
 <body  class="h-full">
 
 <div class="min-h-full">
-<?php require("partials/nav.php")?>
+<?php require("views/partials/nav.php")?>
 
 
   <main>
@@ -18,6 +18,6 @@
   </main>
   </div>
 </body>
-  <?php require("partials/footer.php")?>
+  <?php require("views/partials/footer.php")?>
 
 
