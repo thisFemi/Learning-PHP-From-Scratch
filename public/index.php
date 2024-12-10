@@ -14,7 +14,7 @@ spl_autoload_register(function ($class){
 // require base_path( "Database.php");
 // require base_path("Response.php");
 
-
+require base_path('bootstrap.php');
 
 
 

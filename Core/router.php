@@ -18,7 +18,7 @@ class Router{
     
     }
     public function delete($uri, $controller){
-        $this->add('DELETE', $uri, $controller);
+        $this->add("DELETE", $uri, $controller);
     }
     public function post($uri, $controller){
         $this->add('POST', $uri, $controller);
@@ -28,7 +28,7 @@ class Router{
     }
     public function route($uri, $method){
 foreach($this->routes as $route){
-if($route['uri']==$uri &&$route['method']==strtoupper($method)){
+if($route['uri']==$uri && $route['method']==strtoupper($method)){
     return require base_path($route['controller']);
 }
 
