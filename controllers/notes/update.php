@@ -29,7 +29,7 @@ if(!Validator::string($_POST['body'],1,400)){
             'errors'=>$errors
             ]);
         }
-        $db->query('update notes set body = :body where id=:id', [
+$db->query('update notes set body = :body where id=:id', [
 'id'=>$_POST['id'],
 'body'=>$_POST['body']
         ]);
