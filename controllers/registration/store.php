@@ -24,7 +24,9 @@ $db=App::resolve(Database::class);
     //dd($user);
 //if yes, redirect to a login page
 if($user){
+    
     header('location:/');
+    exit();
 }else{
     //insert the user into the database
     $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
@@ -34,6 +36,7 @@ if($user){
     $_SESSION['user']=[
 'email'=>$email
     ];
+   // dd($_SESSION['user']);
     header('location:/');
     exit();
 }
