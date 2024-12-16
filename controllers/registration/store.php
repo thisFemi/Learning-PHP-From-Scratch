@@ -31,11 +31,9 @@ if($user){
     //insert the user into the database
     $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
 "email"=>$email,
-"password"=>$password,
+"password"=>password_hash($password,PASSWORD_BCRYPT)
     ]);
-    $_SESSION['user']=[
-'email'=>$email
-    ];
+login($user);
    // dd($_SESSION['user']);
     header('location:/');
     exit();

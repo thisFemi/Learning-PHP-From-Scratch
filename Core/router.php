@@ -1,5 +1,9 @@
 <?php
 namespace Core;
+use Core\Middleware\Guest;
+use Core\Middleware\Auth;
+use Core\Middleware\Middleware;
+
 class Router{
     protected $routes=[];
     protected function add($method,$uri,$controller){
@@ -38,15 +42,17 @@ class Router{
 foreach($this->routes as $route){
 if($route['uri']==$uri && $route['method']==strtoupper($method)){
     //apply the middleware
-    if($route['middleware']=='guest'){
-if($_SESSION['user']??false){
-    header('location:/');
-    exit();
-}
-    }
-    if($route['middleware']=='auth'){
-      
-            }
+    
+        Middleware::resolve($route['middleware']);
+    
+   
+  
+//     if($route['middleware']=='guest'){
+// (new Guest)->handle();
+//     }
+//     if($route['middleware']=='auth'){
+//         (new Auth)->handle();
+//             }
     return require base_path($route['controller']);
 }
 
